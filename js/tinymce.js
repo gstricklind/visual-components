@@ -1,5 +1,5 @@
 (function() {
-    var template_uri = object_name.template_uri;
+    var plugin_uri = object_name.plugin_uri;
 
     tinymce.create('tinymce.plugins.shortcode_buttons', {
         /**
@@ -13,33 +13,25 @@
 
 
          init : function(ed, url) {
-         	ed.addButton('panel', {
-         		title : 'Add Panel', 
-         		image : template_uri + '/images/TinyMCE/panel.png',
-         		onclick : function() {
-         			ed.selection.setContent('[panel type="text_only"]' + ed.selection.getContent() + '[/panel]');
-         		}
-         	});
+            ed.addButton('panel', {
+                title : 'Add Panel', 
+                image : plugin_uri + '/img/TinyMCE/panel.png',
+                onclick : function() {
+                    ed.selection.setContent('[panel type="text_only"]' + ed.selection.getContent() + '[/panel]');
+                }
+            });
 
             ed.addButton('button', {
                 title : 'Add Button', 
-                image : template_uri + '/images/TinyMCE/button.png',
+                image : plugin_uri + '/img/TinyMCE/button.png',
                 onclick : function() {
                     ed.selection.setContent('[button href="" target="_blank"]' + ed.selection.getContent() + '[/button]');
                 }
             });
 
-            ed.addButton('excerpts', {
-                title : 'Add Excerpts', 
-                image : template_uri + '/images/TinyMCE/excerpts.png',
-                onclick : function() {
-                    ed.selection.setContent('[excerpts display="3"]');
-                }
-            });
-
             ed.addButton('column_halfs', {
                 title : '2 Columns 1:1', 
-                image : template_uri + '/images/TinyMCE/column_halfs.png',
+                image : plugin_uri + '/img/TinyMCE/column_halfs.png',
                 onclick : function() {
                     ed.selection.setContent('[one_half] First Column [/one_half] [one_half_last] Second Column [/one_half_last]');
                 }
@@ -47,7 +39,7 @@
 
             ed.addButton('column_thirds', {
                 title : '3 Columns 1:1:1', 
-                image : template_uri + '/images/TinyMCE/column_thirds.png',
+                image : plugin_uri + '/img/TinyMCE/column_thirds.png',
                 onclick : function() {
                     ed.selection.setContent('[one_third] First Column [/one_third] [one_third] Second Column [/one_third] [one_third_last] Third Column [/one_third_last]');
                 }
@@ -64,7 +56,6 @@
     // Register plugin
     tinymce.PluginManager.add('panel', tinymce.plugins.shortcode_buttons);
     tinymce.PluginManager.add('button', tinymce.plugins.shortcode_buttons);
-    tinymce.PluginManager.add('excerpts', tinymce.plugins.shortcode_buttons);
     tinymce.PluginManager.add('column_halfs', tinymce.plugins.shortcode_buttons);
     tinymce.PluginManager.add('column_thirds', tinymce.plugins.shortcode_buttons);
 })();
